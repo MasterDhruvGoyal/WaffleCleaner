@@ -52,7 +52,8 @@ code = [
     "Ilovewaffles",
     "pandanwaffle",
     "itiswaffletime",
-    "15waffle8"
+    "15waffle8",
+    "waffleeater"
 ]
 
 def join(event):
