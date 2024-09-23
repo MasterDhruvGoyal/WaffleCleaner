@@ -11,6 +11,8 @@ areaSlider = document.getElementById("area")
 ConSlide = document.getElementById("confirmSlide")
 SqueegeeChoice = document.getElementById("squeegee")
 ClothChoice = document.getElementById("cloth")
+OneSideChoice = document.getElementById("window")
+TwoSideChoice = document.getElementById("sidepane")
 def BasicColor(event):
     global price
     basicbutton.setAttribute("style", "background-color:red")
@@ -96,27 +98,92 @@ def getVal(event):
 cc = create_proxy(getVal)
 areaSlider.addEventListener("input",cc)
 
+
+
 sCount = 0
 cCount = 0
+oCount = 0
+tCount = 0
+mPrice = 0
+sPrice = 0
+
+squeegee_selected = False
+cloth_selected = False
+
+def update_mPrice():
+    global mPrice
+    if squeegee_selected and cloth_selected:
+        mPrice = 1.5
+    elif squeegee_selected or cloth_selected:
+        mPrice = 1
+    else:
+        mPrice = 0
+    console.log(mPrice)
 
 def sChoices(event):
     global sCount
-    if (sCount % 2)==0:
-        SqueegeeChoice.setAttribute("style", "text-shadow: 0 0 10px #00d2ff")
-        sCount = sCount + 1
-    else:
+    global squeegee_selected
+    sCount += 1
+    if (sCount % 2) == 0:
         SqueegeeChoice.setAttribute("style", "text-shadow: 0 0 0 0")
-        sCount = sCount + 1
+        squeegee_selected = False
+    else:
+        SqueegeeChoice.setAttribute("style", "text-shadow: 0 0 10px #00d2ff")
+        squeegee_selected = True
+    update_mPrice()
+
 cc = create_proxy(sChoices)
-SqueegeeChoice.addEventListener("click",cc)
+SqueegeeChoice.addEventListener("click", cc)
 
 def cChoices(event):
     global cCount
-    if (cCount % 2)==0:
-        ClothChoice.setAttribute("style", "text-shadow: 0 0 10px #00d2ff")
-        cCount = cCount + 1
-    else:
+    global cloth_selected
+    cCount += 1
+    if (cCount % 2) == 0:
         ClothChoice.setAttribute("style", "text-shadow: 0 0 0 0")
-        cCount = cCount + 1
+        cloth_selected = False
+    else:
+        ClothChoice.setAttribute("style", "text-shadow: 0 0 10px #00d2ff")
+        cloth_selected = True
+    update_mPrice()
+
 cc = create_proxy(cChoices)
-ClothChoice.addEventListener("click",cc)
+ClothChoice.addEventListener("click", cc)
+
+#SIDES
+selected_choice = None
+
+def oChoices(event):
+    global selected_choice
+    global sPrice
+    if selected_choice != "OneSide":
+        OneSideChoice.setAttribute("style", "text-shadow: 0 0 10px #ff0000")
+        TwoSideChoice.setAttribute("style", "text-shadow: 0 0 0 0")
+        sPrice = 1.5
+        selected_choice = "OneSide"
+    else:
+        OneSideChoice.setAttribute("style", "text-shadow: 0 0 0 0")
+        sPrice = 0
+        selected_choice = None
+    console.log(sPrice)
+
+cc = create_proxy(oChoices)
+OneSideChoice.addEventListener("click", cc)
+
+def tChoices(event):
+    global selected_choice
+    global sPrice
+    if selected_choice != "TwoSide":
+        TwoSideChoice.setAttribute("style", "text-shadow: 0 0 10px #ff0000")
+        OneSideChoice.setAttribute("style", "text-shadow: 0 0 0 0")
+        sPrice = 2
+        selected_choice = "TwoSide"
+    else:
+        TwoSideChoice.setAttribute("style", "text-shadow: 0 0 0 0")
+        sPrice = 0
+        selected_choice = None
+    console.log(sPrice)
+
+cc = create_proxy(tChoices)
+TwoSideChoice.addEventListener("click", cc)
+

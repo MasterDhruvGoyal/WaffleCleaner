@@ -3,12 +3,28 @@
 <html>
 
 <head>
+  <title>Waffle Cleaners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+    href="/css/app-wa-462758aa1e172f82d39e1ea35e919e0a.css?vsn=d">
+  
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+  
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-duotone-solid.css">
+  
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-thin.css">
+  
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-solid.css">
+  
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-regular.css">
+  
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-light.css">
+
   <link rel="stylesheet" href="clean.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zain|Mavern Pro">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zain|Mavern Pro|Exo+2|Saira+Condensed|Orbitron|Signika">
   <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
   <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
@@ -77,11 +93,46 @@
     <div id="wafVal" class="value">1</div>
   </div>
 
-  <span id="squeegee" class="icon-cloth icon"></span>
-  <span id="cloth" class="icon-squeegee icon"></span>
+  <div id="choices">
+    <div id="material" class="choicerow">
+      <div id="title" class="text-container">CHOOSE YOUR MATERIALS</div>
+      <div id="bodytext" class="text-container">Select One or Both of the Materials : Squeege , Cloth</div>
+      <div class="icons-container">
+        <span id="squeegee" class="icon-cloth icon"></span>
+        <span id="cloth" class="icon-squeegee icon"></span>
+      </div>
+    </div>
+    <div id="vertical" class="vertirow"></div>
+    <div id="sides" class="choicerow">
+      <div id="title" class="text-container">SELECT HOW MANY SIDES TO WASH</div>
+      <div id="bodytext" class="text-container"> <-- ONE or Two --> </div>
+      <div class="icons-container">
+        <span id="window" class="icon-windowpane1-1 icon"></span>
+        <span id="sidepane" class="icon-sidepane icon"></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="donation">
+    <p id="donate" class="a3">DONATIONS</p>
+
+    <div class="donatespacing" id="dinosaur">
+      <p id="dinoquest">Donate S$1 to Helpvdfig</p>
+      <i class="fa-regular fa-dinosaur dinoicon"></i>
+    </div>
+
+    <div>
+      <button href="#" id="yesdino" class="button yes">YES</button>
+    </div>
+
+    <div class="donatespacing" id="poor">
+      <p id="poorquest"></p>
+      <span></span>
+    </div>
+  </div>
+  
 
   <py-script src="waffle.py"></py-script>
 
 </body>
-
 </html>
